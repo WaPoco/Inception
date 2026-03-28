@@ -1,0 +1,6 @@
+services:
+  db:
+    build: .
+    restart: always
+    env_file:
+      - .env
