@@ -1,14 +1,11 @@
-# *This project has been created as part of the 42 curriculum by vpogorel.*
 
 # Inception
 
+*This project has been created as part of the 42 curriculum by vpogorel.*
+
 ## Description
 
-### Project Overview
-
 **Inception** is a system administration project from the 42 curriculum that introduces containerization using Docker. The objective is to design and deploy a complete web infrastructure composed of multiple isolated services, each running inside its own Docker container and communicating through a dedicated Docker network.
-
-The project emphasizes infrastructure as code, service isolation, security, persistence, and reproducibility. Every service is built from custom Dockerfiles rather than pre-built images (except where explicitly allowed), and the entire infrastructure is orchestrated using Docker Compose.
 
 A typical deployment includes:
 
@@ -31,61 +28,9 @@ The primary goals of this project are to:
 * Apply infrastructure automation through Docker Compose.
 * Gain experience with Linux system administration concepts.
 
-### Docker Usage
+=======
+The whole project was done inside a virtual machine in order to get the sudo rights of a computer at 42 Berlin.
 
-Docker is used to package every service into its own isolated container. Each service contains only the software required for its role, making deployments reproducible across different machines.
-
-This project uses:
-
-* Custom Dockerfiles
-* Docker Compose
-* Named Docker volumes
-* User-defined bridge networks
-* Docker secrets (or equivalent secure credential management)
-
-Because every service is isolated, containers can be rebuilt independently without affecting the rest of the infrastructure.
-
-### Sources Included in the Project
-
-The repository typically contains:
-
-```text
-.
-├── Makefile
-├── README.md
-└── srcs
-    ├── docker-compose.yml
-    ├── .env
-    └── requirements
-        ├── nginx
-        │   ├── Dockerfile
-        │   └── conf/
-        ├── mariadb
-        │   ├── Dockerfile
-        │   └── tools/
-        └── wordpress
-            ├── Dockerfile
-            └── tools/
-```
-
-The exact structure may vary depending on the implementation.
-
-### Main Design Choices
-
-The infrastructure was designed around the following principles:
-
-* One process per container.
-* Custom Docker images built from Dockerfiles.
-* Containers communicate only through an internal Docker network.
-* Persistent application data stored in Docker volumes.
-* Reverse proxy handled by NGINX.
-* Database isolated from external access.
-* TLS encryption enabled for secure HTTP communication.
-* Credentials separated from application configuration.
-
----
-
-## Design Comparisons
 
 ### Virtual Machines vs Docker
 
@@ -140,9 +85,38 @@ Named Docker volumes are preferred because they provide persistence while remain
 
 ---
 
+### File structure
+
+The repository typically contains:
+
+```text
+.
+├── Makefile
+├── README.md
+├── DEV_DOC.md
+├── USER_DOC.md
+└── srcs
+    ├── docker-compose.yml
+    ├── .env
+    └── requirements
+        ├── nginx
+        │   ├── Dockerfile
+        │   └── conf/
+        ├── mariadb
+        │   ├── Dockerfile
+        │   └── tools/
+        └── wordpress
+            ├── Dockerfile
+            └── tools/
+```
+
+The exact structure may vary depending on the implementation.
+
+---
+
 # Instructions
 
-## Requirements
+### Requirements
 
 * Docker
 * Docker Compose
@@ -240,31 +214,8 @@ docker compose down --volumes --rmi all
 
 # Resources
 
-## Docker Documentation
-
-* Docker Official Documentation
-* Docker Compose Documentation
-* Dockerfile Reference
-* Docker Networking Documentation
-* Docker Volumes Documentation
-* Docker Secrets Documentation
-
-## NGINX
-
-* Official NGINX Documentation
-
-## MariaDB
-
-* MariaDB Documentation
-
-## WordPress
-
-* WordPress Developer Documentation
-
-## Linux
-
-* Linux Filesystem Hierarchy Standard
-* Debian Documentation
+- Docker 42 tutorial (https://dev.to/alejiri/docker-nginx-wordpress-mariadb-tutorial-inception42-1eok)
+- Tutorial from another 42 student (https://devabdilah.medium.com/inception-42-a-comprehensive-guide-to-dockerizing-your-first-infrastructure-part-iii-a10e93e9d922)
 
 ## AI Usage
 
