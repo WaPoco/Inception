@@ -110,12 +110,11 @@ List running containers:
 ```bash
 docker ps
 ```
-<<<<<<< HEAD
 
 View all project containers:
 =======
 The command compose only works in the parentfolder of the yml file. View all project containers:
->>>>>>> 6acace4 (Changed the doc files)
+
 
 ```bash
 docker compose ps
